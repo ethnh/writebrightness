@@ -17,14 +17,16 @@ enum Mode
     /// Set Brightness
     Set(SetCommand),
 
-    /// Get Brightness
+    /// Get current brightness
     Get,
 
     /// Increase Brightness by
-    Inc(IncCommand),
+    Increase(IncreaseCommand),
+    Inc(IncreaseCommand),
 
     /// Decrease Brightness By
-    Dec(DecCommand)
+    Decrease(DecreaseCommand),
+    Dec(DecreaseCommand),
 }
 
 #[derive(Debug, Args)]
@@ -34,17 +36,30 @@ struct SetCommand {
 }
 
 #[derive(Debug, Args)]
-struct IncCommand {
+struct IncreaseCommand {
     /// The desired percentage of brightness (0-100) to increase by
     brightness: u8
 }
 
 #[derive(Debug, Args)]
-struct DecCommand {
+struct DecreaseCommand {
     /// The desired percentage of brightness (0-100) to decrease by
     brightness: u8
 }
 
+fn get_brightness() -> u8 { 0 }
+fn set_brightness(brightness: u8) -> Result<(), Box<dyn std::error::Error>> { Ok(()) }
+fn increase_brightness(increase_by: u8) -> Result<(), Box<dyn std::error::Error>> { Ok(()) }
+fn decrease_brightness(decrease_by: u8) -> Result<(), Box<dyn std::error::Error>> { Ok(()) }
+
 fn main() {
     let args = Arguments::parse();
+    
+    use crate::Mode::*;
+    match args.mode {
+        Set(set_command) => {},
+        Get => {},
+        Increase(increase_command) | Inc(increase_command) => {},
+        Decrease(decrease_command) | Dec(decrease_command) => {},
+    }
 }
