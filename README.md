@@ -3,7 +3,7 @@
 ### Purpose
 
 A secure, simple executable to update the `/sys/class/backlight/intel_backlight/brightness` file.<br>
-This file requires root permissions to edit, so `SUDO` or SetUID/SetGID must be used.<br>This executable uses SetUID/SetGID.<br>
+This file requires root permissions to edit, so `sudo` or SetUID/SetGID must be used.<br>This executable uses SetUID/SetGID.<br>
 Intended for use in shell scripts
 
 ### Usage
