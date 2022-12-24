@@ -1,6 +1,8 @@
 use clap::{ Args, Parser, Subcommand };
 use std::fs;
 use std::io::{BufRead, BufReader};
+use users::switch::{set_current_uid, set_current_gid};
+
 
 #[derive(Debug, Parser)]
 #[clap(author, version, about)]
@@ -102,6 +104,9 @@ fn decrease_brightness(decrease_by: u8) -> Result<(), Box<dyn std::error::Error>
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
+    set_current_uid(1)?;
+    set_current_gid(1)?;
+
     let args = Arguments::parse();
     
     use crate::Mode::*;
