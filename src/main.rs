@@ -1,7 +1,7 @@
 use clap::{ Args, Parser, Subcommand };
 use std::fs;
 use std::io::{BufRead, BufReader};
-use users::switch::{set_current_uid, set_current_gid};
+use users::switch::switch_user_group;
 
 
 #[derive(Debug, Parser)]
@@ -104,8 +104,7 @@ fn decrease_brightness(decrease_by: u8) -> Result<(), Box<dyn std::error::Error>
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    set_current_uid(1)?;
-    set_current_gid(1)?;
+    switch_user_group(1, 1)?; // elevate to root
 
     let args = Arguments::parse();
     
