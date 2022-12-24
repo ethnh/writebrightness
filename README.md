@@ -8,8 +8,8 @@ Intended for use in shell scripts
 
 ### Usage
 
-Build the executable,<br>```cargo build --release```<br><br>
-Change executable's permissions,<br>```cd target/release; sudo chown root:root writebrightness; sudo chmod u+s writebrightness; sudo chmod g+s writebrightness;```<br><br>
+Build the executable,<br>```cargo build --release```<br>
+Change executable's permissions,<br>```cd target/release; sudo chown root:root writebrightness; sudo chmod u+s writebrightness; sudo chmod g+s writebrightness;```<br>
 Run!<br>```./writebrightness```
 
 ### License
