@@ -95,11 +95,11 @@ fn set_brightness(brightness: u8) -> Result<(), Box<dyn std::error::Error>> {
 }
 
 fn increase_brightness(increase_by: u8) -> Result<(), Box<dyn std::error::Error>> { 
-    set_brightness(get_brightness()+increase_by)?;
+    set_brightness(get_brightness().saturating_add(increase_by))?;
     Ok(())
 }
 fn decrease_brightness(decrease_by: u8) -> Result<(), Box<dyn std::error::Error>> {
-    set_brightness(get_brightness()-decrease_by)?;
+    set_brightness(get_brightness().saturating_sub(decrease_by))?;
     Ok(())
 }
 
